@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
+    <style media="screen">
+      body {
+        margin: 0;
+        padding: 0;
+        line-height: 1em;
+        font-size: 100%;
+        background: #111;
+        font-family: 'Alegreya Sans', sans-serif;
+      }
+      .site-wrap {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        padding: 1em;
+        flex-wrap: wrap;
+      }
+      header {
+        height: 150px;
+        background: #333;
+        width: 100%;
+      }
+      aside {
+        background: #333;
+        padding: 1em;
+        min-height: calc(100vh - 150px);
+        width: 25vw;
+        font-family: 'Alegreya Sans', sans-serif;
+      }
+
+      h2 {
+        font-size: 2.5em;
+        line-height: 1em;
+        margin-bottom: 0.5em;
+        margin-top: 0;
+        padding-bottm: 3px;
+        border-bottom: 2px solid #8C7B54;
+        color: white;
+        font-variant: small-caps;
+        font-weight: bold;
+        text-shadow: 2px 2px 1px #000;
+      }
+      main {
+        background: #333;
+        padding: 1em;
+        min-height: calc(100vh - 150px);
+        flex-grow: 1;
+      }
+
+      #aspect-side {
+        margin-top: 3.5em;
+      }
+
+      .nav {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        gap: 2%;
+        list-style: none;
+        max-width: 60vw;
+        margin: 0 auto;
+        color: white;
+        text-align: center;
+      }
+      .nav-item {
+        padding: 0 .75em;
+        line-height: 1.2em;
+        font-size: 1.25em;
+        cursor: pointer;
+        transition: all 0.4s;
+      }
+      .nav-item:hover {
+          transform: scale(1.1);
+      }
+
+      .nav-item:hover img{
+          filter: drop-shadow(-2px -2px 0 gold) drop-shadow(-2px 2px 0 gold) drop-shadow(2px -2px 0 gold) drop-shadow(2px 2px 0 gold);
+      }
+
+      .nav-item img{
+        display: block;
+        transition: all 0.4s;
+        margin: 0 auto 15px;
+      }
+      .hide {
+        display: none;
+      }
+      .weapon_wrap {
+        position: relative;
+      }
+      .weapon_wrap:hover .hover-switch{
+        background: rgba(0,0,0, .75);
+        opacity: 1;
+      }
+
+      .hover-switch {
+        position: absolute;
+        opacity: 0;
+        transition: all 0.4s;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-variant: small-caps;
+        font-size: 23px;
+        padding: 24px 0;
+        cursor: pointer;
+      }
+      .current__weapon {
+        display: flex;
+        flex-direction: row;
+        border-radius: 100px;
+        margin-bottom: 1em;
+        padding: 1em;
+        align-content: center;
+        align-items: center;
+      }
+      .weapon-icon {
+        height: 40px;
+        width: 40px;
+        padding: 2px;
+        background: rgba(0,0,0, .5);
+        border-radius: 110px;
+        position: relative;
+        margin-right: 1em;
+      }
+      .current__weapon img,
+      .current__aspect img {
+        max-width: 90%;
+        max-height: 90%;
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translate(-45%, -25%);
+      }
+
+      .current__weapon span {
+        font-size: 20px;
+        display: block;
+        font-variant: small-caps;
+        color: white;
+        letter-spacing: 0.05em;
+      }
+      .current__aspect {
+        padding: 1em 1em;
+        border-radius: 100px;
+        margin-bottom: 1em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: white;
+
+      }
+      .no_selection {
+        text-align: center;
+        transition: all 0.3s;
+        color: white;
+        border: 2px dashed #606060;
+        box-shadow: 0px 10px 1px rgb(0 0 0 / 20%) inset
+      }
+
+      .no_selection:hover {
+        background: #111;
+        border-color: #111;
+        color: #CCC;
+      }
+      .type-nav {
+        background: rgba(0,0,0, .2);
+        width: 100%;
+        margin-bottom: 20px;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        justify-content: space-between;
+      }
+      .type-nav img{
+        max-width: 40px;
+        max-height: 40px;
+      }
+      .disabled img {
+        filter: saturate(50%);
+        opacity: .25;
+      }
+    </style>
+
+    <title>Hades Builder</title>
+  </head>
+  <body>
+    <div class="site-wrap">
+      <header>
+
+      </header>
+      <aside>
+        <section id='weapon-side'>
+          <h2>Weapon</h2>
+          <div class='weapon_wrap'>
+            <div class='current__weapon no_selection'>
+              <span>Select Weapon</span>
+            </div>
+            <div class='hover-switch' id='switchWeapon'>
+                <img src="">
+                <span>Switch</span>
+            </div>
+          </div>
+          <div class="weapon_wrap">
+            <div class='current__aspect no_selection'>
+              <span> Select Aspect</span>
+            </div>
+          </div>
+        </section>
+        <section id='aspect-side'>
+          <h2>Abilities</h2>
+          <div class='current__aspect no_selection'>
+            <span> Select Attack</span>
+          </div>
+          <div class='current__aspect no_selection'>
+            <span> Select Special</span>
+          </div>
+          <div class='current__aspect no_selection'>
+            <span> Select Cast</span>
+          </div>
+          <div class='current__aspect no_selection'>
+            <span> Select Dash</span>
+          </div>
+          <div class='current__aspect no_selection'>
+            <span> Select Call</span>
+          </div>
+        </section>
+      </aside>
+      <main>
+        <section id='main-menu'>
+          <ul class='nav type-nav'>
+            <li><img src="assets/img/Zeus_symbol.webp"></li>
+            <li><img src="assets/img/Poseidon_symbol.webp"></li>
+            <li><img src="assets/img/Athena_symbol.webp"></li>
+            <li><img src="assets/img/Ares_symbol.webp"></li>
+            <li class='disabled'><img src="assets/img/Artemis_symbol.webp"></li>
+            <li class='disabled'><img src="assets/img/Demeter_symbol.webp"></li>
+            <li><img src="assets/img/Dionysus_symbol.webp"></li>
+            <li class='disabled'><img src="assets/img/Aphrodite_symbol.webp"></li>
+          </ul>
+        </section>
+        <section id='weapons' class='hide'>
+          <h2> Select Weapon</h2>
+          <ul class='nav weapon-nav'>
+            <li class='nav-item' data-weapon="sworld" data-name="Stygian Blade"><img src="assets/img/_weapons/Stygian_Blade.webp"></li>
+            <li class='nav-item' data-weapon="spear" data-name="Eternal Spear"><img src="assets/img/_weapons/Eternal_Spear.webp"></li>
+            <li class='nav-item' data-weapon="shield" data-name='Shield_of Chaos'><img src="assets/img/_weapons/Shield_of_Chaos.webp"></li>
+            <li class='nav-item' data-weapon="bow" data-name='Heart Seeker Bow'><img src="assets/img/_weapons/Heart-Seeker_bow.webp"></li>
+            <li class='nav-item' data-weapon="fists" data-name="Twin Fists"><img src="assets/img/_weapons/Twin_Fists.webp"></li>
+            <li class='nav-item' data-weapon="gun" data-name='Adamant Rail'><img src="assets/img/_weapons/Adamant_Rail.webp"></li>
+          </ul>
+        </section>
+        <section id='aspects' class='hide'>
+          <h2>Select Aspect</h2>
+          <ul class='nav aspect-nav'>
+            <li class='nav-item' data-aspect="zagreus"><img src="assets/img/_aspect/Zagreus_Aspect_Sword.webp">Aspect of Zagreus</li>
+            <li class='nav-item' data-aspect="poseidon"><img src="assets/img/_aspect/Poseidon_Aspect.webp">Aspect of Poseidon</li>
+            <li class='nav-item' data-aspect="nemesis"><img src="assets/img/_aspect/Nemesis_Aspect.webp">Aspect of Nemesis</li>
+            <li class='nav-item' data-aspect="arthur"><img src="assets/img/_aspect/Arthur_Aspect.webp">Aspect of Arthur</li>
+          </ul>
+        </section>
+
+        <section class='hide'>
+          <h2>Boons</h2>
+          <div class='boon-card'>
+            <div class='card-head'>
+              <h3>Curse of Longing</h3>
+              <div class='gods'>
+                <img src="assets/img/Ares_symbol.webp">
+                <img src="assets/img/Aphrodite_symbol.webp">
+              </div>
+            </div>
+            <div class='card-main'>
+              <p>Your Doom effects continuously strike Weak foes.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="text/javascript" src="assets/js/weapons.json"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+  </body>
+</html>

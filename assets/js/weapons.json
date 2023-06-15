@@ -1,0 +1,64 @@
+[
+{
+  "type": "Sword",
+  "ID"  : "W1",
+  "name" : "Stygian Blade",
+  "aspects" : [
+    {
+      "number" : 1,
+      "ID" : "W1-1",
+      "name" : "Aspect of Zagreus",
+      "img" : "/assets/img/_aspect/Zagreus_Aspect_Sword.webp"
+    },
+    {
+      "number" : 2,
+      "ID" : "W1-2",
+      "name" : "Aspect of Poseidon",
+      "img" : "/assets/img/_aspect/Poseidon_Aspect.webp"
+    },
+    {
+      "number" : 3,
+      "ID" : "W1-3",
+      "name" : "Aspect of Nemesis",
+      "img" : "/assets/img/_aspect/Nemesis_Aspect.webp"
+    },
+    {
+      "number" : 4,
+      "ID" : "W1-4",
+      "name" : "Aspect of Arthur",
+      "img" : "/assets/img/_aspect/Arthur_Aspect.webp"
+    },
+  ]
+},
+{
+  "type": "spear",
+  "ID"  : "W2",
+  "name" : "Eternal Spear",
+  "aspects" : [
+    {
+      "number" : 1,
+      "ID" : "W2-1",
+      "name" : "Aspect of Zagreus",
+      "img" : "/assets/img/_aspect/Zagreus_Aspect_Sword.webp"
+    },
+    {
+      "number" : 2,
+      "ID" : "W2-2",
+      "name" : "Aspect of Poseidon",
+      "img" : "/assets/img/_aspect/Poseidon_Aspect.webp"
+    },
+    {
+      "number" : 3,
+      "ID" : "W2-3",
+      "name" : "Aspect of Nemesis",
+      "img" : "/assets/img/_aspect/Nemesis_Aspect.webp"
+    },
+    {
+      "number" : 4,
+      "ID" : "W2-4",
+      "name" : "Aspect of Arthur",
+      "img" : "/assets/img/_aspect/Arthur_Aspect.webp"
+    },
+  ]
+}
+]
